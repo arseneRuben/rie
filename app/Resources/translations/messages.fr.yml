@@ -1,0 +1,93 @@
+## YAML Template.
+---
+
+menu:
+    item:
+        welcome: Accueil
+        emission: Emissions
+        announcement: Annonces
+        testimonies: Témoignages
+        contact: Contacts
+        apropos: A propos
+        find: Rechercher les émissions passées
+layout:
+    logout: Déconnexion
+    login: Connexion
+    register: Inscription
+        
+
+footpage:
+    part1: Conçu et réalisé par 
+    author: Fokam Poka Arsène, Ing. (+237)678342591, fopoar@gmail.com
+    part2: Parce que le présent travail est le fruit d'une contribution plurielle et substancielle, je tiens à remercier
+    part3: le directeur de la radio Il Est Ecrit,
+    director : Louis Abraham Bakari
+    part4: pour m'avoir fait confiance et sa patience,
+    part5: le cabinet
+    cecos: CECOS INFORMATIQUE
+    links: Liens rapides d'emissions
+    sermons : Sermons
+    family : Vie familiale et santé
+    socials : Aimer et partager cette page  
+    prophetie : Bible et Prophétie
+    testimonials : Témoignages
+    part7 : Tout droit réservé, conçu par FOKAM POKA Arsène, Ing
+    uac : Université Adventiste COSENDAI
+    partners : Partenaires
+    thanks : Droits d'auteur
+    testimonials : Témoignages
+
+services:
+    title: Services de la station
+    intro: La Radio Il Est Ecrit est désormais aussi une station de radio Internet de radiodiffusion internationale partout dans le monde. En outre elle offre à ses auditeurs les services ci-dessous cités
+    service1: Etude de la parole de Dieu
+    service2: Couverture médiatique d'évènements 
+    service3: Conseils et assistance
+    service4: Prières et intercession
+    service5: Meditations et sermons videos
+
+equipe:
+    title : Notre équipe
+    intro :  Notre équipe  est essentiellement constituée d'animateurs volontaires  sélectionnés après audition au niveau du service technique.
+
+slider: 
+    detail: Les détails
+emission:
+    title : Les émissions
+    intro : Emissions présentées à la radio Il Est Ecrit
+testimonies:
+    title : Témoignages et actions de grâces
+    intro : "Et je tombai à ses pieds pour l'adorer; mais il me dit: Garde-toi de le faire! Je suis ton compagnon de service, et celui de tes frères qui ont le témoignage de Jésus. Adore Dieu. -Car le témoignage de Jésus est l'esprit de la prophétie.(Apocalypse 19:10)"
+    encouragement : Avez-vous aussi été béni et renouvellé par le Seigneur Jésus-Christ ? Inscrivez-vous et partagez votre témoignage avec la communauté.
+contacts:
+    title: Contactez-nous!
+    intro: La radio Il Est Écrit avec vous est une histoire de bonheur et de grâce de longue date!
+    intro2 : Écoutez et vivez!
+    localisation : Localisation Yaoundé , Contre-bas de l'immeuble de la CNPS
+    send : Envoyer
+about:
+    title: Mot de la direction
+    part1: Écoutez et vivez !
+    part2: Chers auditrices et auditeurs, Bienvenue sur votre radio dans sa version en ligne !
+    part3: Nous avons choisi de servir Dieu. Et depuis 1963,  alors que nous ne faisions que des émissions radiophoniques « Il est écrit » de trente minutes, Dieu a utilisé chaque seconde pour étendre ses appels de grâce.  De centaines de milliers d’âmes ont été arrachées du royaume des ténèbres. En 2003, le rêve d’une station de radiodiffusion a ouvert la voie au lancement effectif de nos émissions à Yaoundé sur 92.4 FM, mais le lancement officiel ne se fera que le 09 décembre 2005. 
+    part4: Notre équipe de volontaires se donne corps et âme pour le Salut de nos semblables. Notre choix musical et nos messages bibliques et christocentrés visent à donner la vie à tous nos auditeurs lassés et fatigués. 
+    part5: Quel bonheur pour nous de savoir qu’à l’écoute d’une mélodie, d’une parole, les élans suicidaires d’une fille désespérée cèdent aux rayons vivifiants de Dieu ! Ils étaient au bord de la rupture dans leur mariage et un message à-propos a remis en place la flamme d’amour. Des témoignages de plus en plus extraordinaires marquent nos activités de chaque jour. Ils me rendent plus humble. Et je reconnais en réalité que Dieu est à l’œuvre, et nous ne sommes que des instruments. De savoir qu’une simple prière de foi bouleverse les forces de l’enfer ne peut que nous réconforter dans notre ministère.
+    part6: Face à une demande de plus en plus pressante de capter notre signal un peu partout, nous avons porté notre choix sur l’extension du signal par la toile. Nous prions que Dieu utilise autant, si ce n’est plus, notre ministère pour libérer les captifs, pour renvoyer libres les opprimés et pour donner l’espoir à ceux et celles qui croient avoir tout perdu. Êtes-vous perdu et en proie au péché aujourd'hui? Jésus peut vous libérer! Êtes-vous loin de Dieu et pris au piège de la haine et de l'amertume? Jésus peut vous libérer! 
+    part7: Écoutez et vivez ! Tel est notre slogan
+
+emissions:
+    sentinelle1 : Sentinelle est un rendez-vous vespéral d'intercession, d'éveil et de garde en faveur de la nation. Une approche avec assurance du trône de la grâce, de commun accord pour accéder au Saint des Saint, la Shékina, ou en core la présence du Dieu fort et grand.
+    sentinelle2 : C'est aussi notrte espace de partages, d'échanges des fardeaux en toute liberté entre frères et soeurs dans la communion fraternelle. 
+    tribune1 : La Tribune Féminine est votre magazine social qui contribue à l'épanouissement et au bien-être de la femme.
+    tribune2 : Tribune féminine, c'est soixante minutes de programmes avec une histoire d'une femme, la question de la semaine, le livret de recette, l'unité, les astuces, les conseil de l'expert.
+    tribune3 : Tribune Féminine, l'actualité des femmes, par les femmes et pour les femmes. 
+    reflets1 : Reflets d'Actualités, c'est l'actualité en majuscule et l'information en temps réelle. Réflets d'actualités, c'est l'actualité retrospective, l'analyse, reportage, commentaires, entretiens et vox pop. 
+    reflets2 : Reflets d'actualités, c'est un aperçu biblique du vécu quotidien dans la sphère nationale et sur l'échequier international.
+    reflets3 : Sociétié, économie, petits métiers, savoirs vivre, musiques, droit, santé, politique, réligion, sport, éducation, anniversaires.
+    autourdulivre : Autour du livre est un programme de la radio il est écrit
+    jrf : J'ai Rencontré la Foi, une émission des témoignages de l'action divine au coeur des tempêtes et orages, une histoire des personnes comme nous qui ont su s'accrocher à Dieu
+    natureetsante : Nature et Santé c'est la fraicheur de la santé par les vertues de la nature
+    ilestecrit : Une analyse des tendances, des faits, des évènements de notre époque à la lumière des saintes écritures
+    vieetsante : Une contribution de la radio Il Est Ecrit pour le bien-être sanitaire des population et surtout de la famille.
+    voixesperance : Une émission à votre écoute, à l'écoute de la vie Une émission qui vous parle de Dieu, de vous, de vos espérances, de votre santé.
+    matinmusique : 

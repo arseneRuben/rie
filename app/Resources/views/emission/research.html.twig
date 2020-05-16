@@ -1,0 +1,71 @@
+{% extends 'layout/layout.html.twig' %}
+ 
+
+{% block body %}
+    {% block emission %} 
+        <!--==========================
+      Porfolio Section
+    ============================-->
+        <section id="portfolio">
+            <div class="container wow fadeInUp">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="section-title">Résultat des enregistrements d'émissons recherchés</h3>
+                        <div class="section-title-divider"></div>
+
+                    </div>
+                </div>
+
+                <table class="table table-responsive">
+                    
+                        <tr>
+                            <td>
+                                Emission
+                            </td>
+                            <td>
+                                Présentée par
+                            </td>
+                            <td>
+                                Enregistrement
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    
+                    {% for passages in listpassages %}
+                        <div class="row">
+                            {% for passage in passages %}
+                                <tr >
+                                    <td>
+                                        <b> {{passage.emission.nom}}-</b>
+                                    </td>
+                                    <td>
+                                        <b> {{passage.journalist}}</b>
+                                    </td>
+                                    <td> <span class="glyphicon glyphicon-music"></span>
+                                        <b> {{passage.mediaName}}-</b><i>{{'('~passage.datedujour|date('d-m-Y')~')'}}</i> <br/>
+                                        <audio   src="{{'/uploads/media/'~passage.emission.nom~'/'~passage.mediaName}}" type="audio/mp3" controls="controls"></audio>
+                                    </td>
+                                    <td>
+                                       
+                                            <div class="vote_btns btn-group ">
+                                                <button data-role="like" id="like{{passage.id}}" emi="{{passage.emission.id}}" class="vote_btn vote_like">
+                                                    <i class="fa fa-thumbs-up"></i><b id="btn{{passage.id}}" >{{passage.likecount}}</b>
+                                                </button>
+                                                <button  data-role="dislike" id="disl{{passage.id}}" emi="{{passage.emission.id}}" class="vote_btn vote_dislike">
+                                                    <i class="fa fa-thumbs-down"></i><b id="btnd{{passage.id}}">{{passage.dislikecount}}</b>
+                                                </button>
+                                            </div>
+                                        
+                                    </td>
+                                </tr>  
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </table>
+
+
+            </div>
+        </section>
+    {% endblock %}
+{% endblock %}

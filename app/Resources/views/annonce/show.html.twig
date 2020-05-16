@@ -1,0 +1,163 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block metasharefacebook %}
+    <meta property="og:url"           content="{{ path(app.request.attributes.get('_route'), { 'id': annonce.id }) }}" />
+{% endblock %}
+
+
+{% block body %}
+    {% block slider %}
+        <div class="container">
+            <br/>
+            <div class="about">			
+
+                <div class="row">			
+                    <div class="row-slider">
+                        <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.2s">
+                            <div class="col-lg-6 mar-bot30">
+                                <div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
+                                    <div class="slides" data-group="slides">
+                                        <img width="100%" class="img-responsive" src= "{{asset('uploads/images/annonces/'~annonce.imageName)}}" alt="{{annonce.titre}}" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
+                                <div class="thumnails">
+                                    <h4><b>{{ annonce.titre }}</b></h4>													
+                                    <p>{{ annonce.contenu }}</p>
+
+                                    <p><i>{% if annonce.updated %}{{ annonce.updated|date('H:i:s') }}{% endif %}</i></p>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            {% if annonce.supportName %} 
+                                                <a href="{{asset('uploads/pdfs/annonces/'~annonce.supportName)}}"  > Télécharger le support pdf<i class="glyphicon glyphicon-download"></i></a>
+                                                {% endif %}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="ficon">
+                                                <a href="{{ path('annonce_index')}}" alt="">Liste des annonces <i class="glyphicon glyphicon-list"></i></a> 
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>					
+                            </div>	
+                        </div>
+                        <div class="row vote">
+
+                            <div class="vote_btns">
+
+
+                                <button data-role="like" class="vote_btn vote_like">
+                                    <i class="fa fa-thumbs-up"></i><b>{{annonce.likecount}}</b>
+                                </button>
+
+                                <button  data-role="dislike" class="vote_btn vote_dislike">
+                                    <i class="fa fa-thumbs-down"></i><b>{{annonce.dislikecount}}</b>
+                                </button>
+                                {# {{ getSocialButtons() }} #}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+            <br/>
+        </div>
+
+    {% endblock %}
+{% endblock %}
+
+{% block footer %} 
+    <!--==========================
+              Footer
+     ============================--> 
+    <footer id="footer">
+        <div class=" row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-9">
+                {% block liens %}
+                    {{parent()}}
+                {% endblock %}
+                {% block sharefacebook %} 
+                    <HR size=0.8 align="center" width="60%">
+                    <div class=" row">
+                        <div class="social-icon  col-md-6">
+                            <h3 ><span><b>{{'footpage.socials'|trans}}</b></span> </h3>
+                            <ul class="social-network">
+                                <li><a  href="https://web.facebook.com/radioilestecrit.yaounde" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <div class="fb-like"  data-href="{{ path(app.request.attributes.get('_route'), { 'id': annonce.id })  }}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>   
+                            </ul>
+                        </div>
+                        <div class=" partners col-md-6">
+                            <span><b>{{'footpage.partners'|trans}}</b></span> 
+                            <ul>
+                                <li><a href="http://uacosendai-edu.net"><b>{{'footpage.uac'|trans}}</b></a></li>
+                                <li><a href="https://ilestecrit.tv/"><b>Il Est Ecrit Tv</b></a></li>
+                                <li><a href="http://cecos-soft.com/"><b>{{'footpage.cecos'|trans}}</b></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block copyright %}
+                    {{parent()}}
+                {% endblock %}
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </footer><!-- #footer -->
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script>
+
+
+        $(document).on('click', 'button[data-role=like]', function () {
+            var url = '{{ path("annonce_like", {'id': 'id'}) }}';
+            url = url.replace("id", {{annonce.id}});
+                    var likecount ={{annonce.likecount}} ;
+            var vote = $("button[data-role=like] b");
+
+            $.ajax({
+                url: url,
+                method: "POST",
+                data: {vote: likecount},
+                success: function () {
+                    vote.html(parseInt(vote.html()) + 1);
+                }
+
+            });
+
+        });
+
+        $(document).on('click', 'button[data-role=dislike]', function () {
+            var url = '{{ path("annonce_dislike", {'id': 'id'}) }}';
+            url = url.replace("id", {{annonce.id}});
+                    var dislikecount ={{annonce.dislikecount}} ;
+            var vote = $("button[data-role=dislike] b");
+
+            $.ajax({
+                url: url,
+                method: "POST",
+                data: {vote: dislikecount},
+                success: function () {
+                    vote.html(parseInt(vote.html()) + 1);
+                }
+
+            });
+
+
+        });
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,18 @@
+profil:
+    label: Profil de
+    image_indication : Vous n\'avez pas encore d'image de profil. Bien vouloir la choisir dans le panneau droit
+    label_telephon : Téléphone
+    label_sex : Sexe
+    name_label : Nom
+    fullfil_msg: Compléter mon profil
+    item_sex_male : Homme
+    item_sex_female : Femme
+    label_sex_male : Homme
+    label_sex_female : Femme
+    label_nationality: Nationalité
+    place_holder_telephon : Numéro de téléphone
+    label_email : Adresse email
+    label_facebook : Compte Facebook
+    label_twitter : Compte Twitter
+    label_image : Image de profile
+    sunbath_msg: Bains be soleil

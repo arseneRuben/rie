@@ -1,0 +1,49 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block body %}
+	{% block about %}
+		<br/><br/><br/>
+
+
+		<div class="space-medium">
+			<div class="container text-center">
+
+				<div id="blocfilm" class="row">
+					{% include "film/listfilm.html.twig" %}
+					
+				</div>
+
+			</div>
+		</div>
+	
+	{% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+
+{{parent()}}
+
+
+<script type="text/javascript">
+	$(".ChoiceAuthor").change(function () {
+		author = $("select.ChoiceAuthor option:selected").val();
+		alert(author);
+		$.ajax({
+			type: "POST",
+			url: "{{ path('films_by_author') }}",
+			data: {
+			author: author
+		},
+		datatype: "json",
+		success: function (data) {
+				$("#blocfilm").html(data).reload();
+		}
+		
+	});
+	});
+	$(".ChoiceMonth").change(function () {
+			month = $("select.ChoiceMonth option:selected").val();
+	});
+
+</script>
+{% endblock %}

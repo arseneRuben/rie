@@ -1,0 +1,90 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block body %}
+
+    {% block slider %}
+        <!-- =========================
+          Slider section
+      ============================-->
+        <br/>
+        <div class="slider">		
+            <div id="about-slider">
+                <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators visible-xs">
+
+                        <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+
+                        <li data-target="#carousel-slider" data-slide-to="1"></li>
+                        <li data-target="#carousel-slider" data-slide-to="2"></li>
+
+
+                    </ol>
+
+                    <div class="carousel-inner">
+                        
+
+                        <div class="item active">
+                            <img   src= "{{asset('img/teste1.jpg')}}" class="img-responsive" alt="la fréquence de la parole"/> 
+                            <div class="carousel-caption">
+                                <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
+                                    <h2></h2>
+                                </div>
+                                <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
+                                    <p></p>
+                                </div>
+                                <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
+                                    <p></p>
+                                </div>
+                                <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">								
+
+                                </div>
+                            </div>
+                        </div> 
+
+
+                        {% for annonce in annonces %}
+                            <div class="item">
+                                <img  class="img-responsive" src= "{{asset('uploads/images/annonces/'~annonce.imageName)}}" alt="{{annonce.titre}}" />
+
+
+                                <div class="carousel-caption">
+                                    <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">								
+                                        <h2><span>{{annonce.titre}}</span></h2>
+                                    </div>
+                                    <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.3s">								
+
+                                    </div>
+                                    <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">								
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <a href="{{ path('annonce_show', { 'id': annonce.id }) }}" class="btn btn-primary btn-lg"  >
+                                                  {{'slider.detail'|trans}}  
+                                                </a>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+
+                    <a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+                        <i class="fa fa-angle-left"></i> 
+                    </a>
+
+                    <a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
+                        <i class="fa fa-angle-right"></i> 
+                    </a>
+                </div> <!--/#carousel-slider-->
+            </div><!--/#about-slider-->
+        </div><!--/#slider-->
+        <br/>
+    {% endblock %}
+
+
+
+{% endblock %}

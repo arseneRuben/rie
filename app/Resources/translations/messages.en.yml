@@ -1,0 +1,91 @@
+
+menu:
+    item:
+        welcome: Welcome
+        emission: Broadcasts
+        announcement: Announcements
+        testimonies: Testimonials
+        contact: Contacts
+        apropos: About
+        find: search for a past show
+layout:
+    logout: Logout
+    login: Login
+    register: Register
+        
+        
+footpage:
+    part1: Designed and produced by 
+    author: Fokam Poka Arsène, Eng. (+237)678342591, fopoar@gmail.com
+    part2: Because the present work is the fruit of a plural and substantial contribution,I wish to thank 
+    part3: the director of the radio Il Est Ecrit,
+    director: Louis Abraham Bakari
+    part4: for having trusted me and his patience,
+    part5: the cabinet
+    cecos: CECOS INFORMATIQUE
+    links:  Rapid links
+    sermons : Sermons
+    family : Family life and Health
+    health : Health
+    prophetie : Bible and Prophecy
+    part7: All rights reserved, designed by FOKAM POKA Arsène, Ing
+    uac : COSENDAI Adventist University
+    partners : Partners
+    thanks : Copyrirht
+    testimonials : Testimonials
+    socials : Like and share this page
+services:
+    title: Radio station services
+    intro: Radio Il Est Ecrit is now also an international radio station of international broadcasting all over the world.In addition, it offers its listeners the services mentioned below
+    service1: Study of the word of God
+    service2: Media coverage of events
+    service3: Advice and assistance
+    service4: Prayers and intercession
+    service5: Video sermons and meditations
+
+equipe:
+    title : Our team
+    intro : Our team consists mainly of volunteer leaders selected after hearing at the technical service level.
+
+slider: 
+    detail: The details
+
+emission:
+    title : Radio broadcasts
+    intro : Programs presented on the radio Is written
+    
+testimonies:
+    title : Testimonies and thanksgiving
+    intro : 'And I fell at his feet to worship him; but he said to me, "Be careful not to do it! I am your fellow servant, and your brothers who have the testimony of Jesus. Adore God. -The testimony of Jesus is the spirit of the prophecy (Revelation 19:10)'
+    encouragement : Have you also been blessed and renewed by the Lord Jesus Christ? Register and share your story with the community.
+contacts:
+    title: Contact us!
+    intro: Radio Il Est Ecrit with you is a story of happiness and grace for a long time!
+    intro2 : Listen and live!
+    localisation : Location Yaoundé, Downhill of the building of the CNPS
+    send : Send
+
+about:
+    title: word of the director
+    part1: Listen and live !
+    part2: Dear listeners, Welcome to your radio in its online version!
+    part3: We chose to serve God. And since 1963, when we only did thirty-minute radio shows "Il Est Ecrit", God used every second to extend his calls for grace. Hundreds of thousands of souls have been torn out of the kingdom of darkness. In 2003, the dream of a broadcasting station has opened the way to the effective launch of our emissions in Yaounde on 92.4 FM, but the official launch will occur only December 9, 2005.
+    part4: Our team of volunteers gives their heart and soul for the salvation of our fellow men. Our musical choice and our biblical and christocentric messages aim to give life to all our tired and tired listeners.
+    part5: What happiness for us to know that listening to a melody, a word, the suicidal impulses of a desperate girl yield to the invigorating rays of God! They were on the verge of breaking up in their marriage and a message about the love flame was put back in place. Increasingly extraordinary testimonies mark our daily activities. They make me more humble. And I actually recognize that God is at work, and we are only instruments. To know that a simple prayer of faith disrupts the forces of hell can only comfort us in our ministry.
+    part6: Faced with an increasingly pressing demand to capture our signal everywhere, we have chosen to extend the signal through the canvas. We pray that God will use our ministry as much, if not more, to free the captives, to set the oppressed free and to give hope to those who believe they have lost everything. Are you lost and prey to sin today? Jesus can free you! Are you far from God and trapped in hatred and bitterness? Jesus can free you! If you listened and were blessed, invite others around you to do so. You can also support the ministry of radio "Il Est Ecrit" by your donations and voluntary offerings.
+    part7: Listen and live! This is our slogan
+    
+emissions:
+    sentinelle1 : Sentinelles is a vesperal appointment of intercession, awakening and guarding of the nation. An approach with assurance of the throne of grace, by common accord to access the Holy of Holies, the Shekina, or even the presence of the strong and great God.
+    sentinelle2 : It is also our space of sharing, of burdens exchanges freely between brothers and sisters in the fraternal communion.
+    tribune1 : Tribune Féminine is your social magazine that contributes to the growth and well-being of women. 
+    tribune2 : Tribune Féminine, it's sixty minutes of programs with a story of a woman, the question of the week, the recipe booklet, the unit, the tips, the advice of the expert.
+    tribune3 : Women's Forum, women's news, by women and for women.
+    reflets1 : Réflets d'Actualités, it is the capitalized news and the information in real time. Newsreel is the retrospective news, analysis, reporting, comments, interviews and vox pop.
+    reflets2 : Réflets d'Actualités is a biblical overview of everyday life in the national sphere and the international scherer.
+    reflets3 : Society, economy, small trades, savoir vivre, music, law, health, politics, religion, sport, education, birthdays.
+    autourdulivre : A program of Il Est Ecrit Radio 
+    jrf: J'ai Rencontré La Foi, a show of the testimonies of divine action in the heart of storms and storms, a story of people like us who knew how to hold on to God
+    natureetsante: Natrure et Santé is the freshness of health by the virtues of nature
+    vieetsante: A contribution of the radio Il Est Ecrit for the sanitary well-being of the population and especially of the family.
+    voicesperance: A program for your listening, listening to life A program that tells you about God, you, your hopes, your health.

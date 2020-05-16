@@ -1,0 +1,52 @@
+<h1 class="mt-5">{{'services.service5'|trans}}</h1>
+					<div id="wrapper" class="row">
+						<div class="col-lg-2 mar-bot30"></div>
+						<div class="col-lg-2 mar-bot30">
+							<label for="name">Selectionner un predicateur
+							</label>
+						</div>
+						<div class="col-lg-3 mar-bot30">
+
+							<select class="selectpicker ChoiceAuthor" data-live-search="true">
+								{% for j in journalists  %}
+								<option data-tokens="{{j.id}}">{{j.username}}</option>
+									{% endfor %}
+							</select>
+						</div>
+
+						<div class="col-lg-5 mar-bot30">
+							<div class="form-check">
+								<label class="form-check-label" for="sort_by_month">Classer par mois de creation
+								</label>
+
+
+								<input type="checkbox" class="form-check-input ChoiceMonth" id="sort_by_month">
+							</div>
+
+						</div>
+
+					</div>
+					
+					{% if films  is defined %}
+							{% set gallery = films %}
+					{% endif %}
+					{% for film in gallery|reverse %}
+
+						{% if film.path is not empty %}
+							{% set id = film.path|split('v=')|last %}
+							{% set id = id|split('&')|first %}
+							{% set id = id|split('/')|last %}
+
+							<div class="col-lg-4">
+								<div class="embed-responsive embed-responsive-16by9">
+									<figure style=" overflow: hidden;  padding: 10px 10px 10px 10px;">
+										<iframe src="https://www.youtube.com/embed/{{id}}" frameborder="0" class="embed-responsive-item" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</figure>
+									<h4 class="mb10">{{film.title}}</h4>
+									<p>{{film.dateDujour|date('d-m-Y')}}</p>
+								</div>
+							</div>
+
+
+						{% endif %}
+					{% endfor %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block testimonials %} 
+        <h1>Temoignage de {{ temoignage.auditeur }} </h1>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="quote">
+
+                    <b><img src="{{asset('img/quote_sign_left.png')}}" alt=""></b>{{temoignage.contenu}} <small><img src="{{asset('img/quote_sign_right.png')}}" alt="profil de {{temoignage.auditeur.username}}"></small>
+                </div>
+                <div class="vote_btns">
+
+                    <div class="fb-like" data-href="{{ path('temoignage_show', { 'id': temoignage.id }) }}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="profile">
+                    <div class="pic"><img src="{{asset(temoignage.auditeur.token|slice(1))}}" alt=""></div>
+                    <h4 class="capitale">{{temoignage.auditeur.username}}</h4>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+
+
+
+    <ul>
+        <li>
+            <a href="{{ path('temoignage_index') }}">Retour à la liste</a>
+        </li>
+    </ul>
+{% endblock %}

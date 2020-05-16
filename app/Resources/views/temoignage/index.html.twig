@@ -1,0 +1,152 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block body %}
+    {% block testimonials %}
+        <!--==========================
+              Testimonials Section
+            ============================--> 
+        <section id="testimonials">
+            <div class="container wow fadeInUp">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="section-title">{{'testimonies.title'|trans}} </h3>
+                        <div class="section-title-divider"></div>
+                        <p class="section-description">{{'testimonies.intro'|trans}}</p>
+                    </div>
+                </div>
+
+
+
+
+                {% for temoignage in temoignages %}
+                    {% if temoignage.visibilite %}
+                        {% if loop.index is even %}
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="profile">
+
+                                        <div class="pic"><img src="{{asset(temoignage.auditeur.token|slice(1))}}" alt=""></div>
+                                        <h4 class="capitale">{{temoignage.auditeur.username}}</h4>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="quote">
+                                        <b><img src="{{asset('img/quote_sign_left.png')}}" alt=""></b> {{temoignage.contenu}}<small><img src="{{asset('img/quote_sign_right.png')}}" alt="profil de {{temoignage.auditeur.username}}"></small>
+                                    </div>
+                                    <div class="vote_btns">
+                                        <button data-role="like" id="like{{temoignage.id}}" class="vote_btn vote_like">
+                                            <i class="fa fa-thumbs-up"></i><b  id="btn{{temoignage.id}}">{{temoignage.likecount}}</b>
+                                        </button>
+
+                                        <button  data-role="dislike" id="disl{{temoignage.id}}" class="vote_btn vote_dislike">
+                                            <i class="fa fa-thumbs-down"></i><b  id="btnd{{temoignage.id}}">{{temoignage.dislikecount}}</b>
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% else %}
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="quote">
+
+                                        <b><img src="{{asset('img/quote_sign_left.png')}}" alt=""></b>{{temoignage.contenu}} <small><img src="{{asset('img/quote_sign_right.png')}}" alt="profil de {{temoignage.auditeur.username}}"></small>
+                                    </div>
+                                    <div class="vote_btns">
+
+                                        {#<div class="fb-like" data-href="{{ path('temoignage_index') }}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>#}
+                                        <button data-role="like" id="like{{temoignage.id}}" class="vote_btn vote_like">
+                                            <i class="fa fa-thumbs-up"></i><b  id="btn{{temoignage.id}}">{{temoignage.likecount}}</b>
+                                        </button>
+
+                                        <button  data-role="dislike" id="disl{{temoignage.id}}" class="vote_btn vote_dislike">
+                                            <i class="fa fa-thumbs-down"></i><b  id="btnd{{temoignage.id}}">{{temoignage.dislikecount}}</b>
+                                        </button>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="profile">
+                                        <div class="pic"><img src="{{asset(temoignage.auditeur.token|slice(1))}}" alt=""></div>
+                                        <h4 class="capitale">{{temoignage.auditeur.username}}</h4>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                    {% endif %}
+                {% endfor %}   
+                <div class="navigation  text-center">
+                    <h3><b>{{ knp_pagination_render(temoignages) }}</b></h3>
+                </div>  
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                        <p class="section-description">{{'testimonies.encouragement'|trans}}</p>
+                    </div>
+                    <div class="col-md-12">
+                        
+                        <p class="section-description"><a href="{{ path('contact') }}">Témoigner <span class="glyphicon glyphicon-edit"></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+
+
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    <script>
+
+        $('button[data-role=like]').on('click', function () {
+
+            var url = '{{ path("temoignage_like", {'id': 'id'}) }}';
+            var id = $(this).attr("id");
+            id = id.substring(4, id.length);
+            url = url.replace("id", id);
+            var btnVote = document.getElementById("btn" + id);
+            var vote = btnVote.innerHTML;
+
+            $.ajax({
+                url: url,
+                method: "POST",
+                data: {id: id, vote: vote},
+                success: function () {
+                    btnVote.innerHTML = (parseInt(vote) + 1);
+
+                }
+
+            });
+
+        });
+
+        $('button[data-role=dislike]').on('click', function () {
+
+            var url = '{{ path("temoignage_dislike", {'id': 'id'}) }}';
+            var id = $(this).attr("id");
+            id = id.substring(4, id.length);
+            url = url.replace("id", id);
+            var btnVote = document.getElementById("btnd" + id);
+            var vote = btnVote.innerHTML;
+
+            $.ajax({
+                url: url,
+                method: "POST",
+                data: {id: id, vote: vote},
+                success: function () {
+                    btnVote.innerHTML = (parseInt(vote) + 1);
+
+                }
+
+            });
+
+        });
+
+    </script>
+{% endblock %}

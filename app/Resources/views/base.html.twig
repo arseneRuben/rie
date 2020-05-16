@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RIE</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+        {% block metasharefacebook %}
+           
+         {% endblock %}
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="RIE Cameroun" />
+        <meta property="og:description"   content="Radio Il Est Ecrit Cameroun" />
+        <meta property="og:image"         content="{{asset('img/grandlogo.gif')}}" />
+
+        <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="">
+
+        {% block styles %}
+            <!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
+            <link href="{{asset('img/icone.ico')}}" rel="shortcut icon">
+            <link href="{{ asset('//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css')}}" rel="stylesheet">
+            <link href="{{ asset('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css')}}" rel="stylesheet">
+            <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          
+            {#<!-- Google Fonts -->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet"> 
+#}
+            <!-- Bootstrap CSS File -->
+            {% stylesheets   'css/*'
+             output="css/compiled/main.css" filter="cssrewrite"%}
+
+            <link href="{{ asset_url }}" rel="stylesheet">
+
+            <!-- Latest compiled and minified CSS -->
+             {% endstylesheets %}
+
+       
+        <style type="text/css">
+            @media screen and (min-width: 767px) and (max-width: 779px) {
+              li {
+                float: none;
+              }
+            }
+
+            @media screen and (max-width: 780px) {
+                 #logo{
+                    display: none;
+                 }
+            }
+            @media screen and (max-width: 580px) {
+                 #logo{
+                    display: none;
+                 }
+            }
+            @media screen and (min-width: 780px) {
+                 #logo1{
+                    display: none;
+                    width: 45px;
+                 }
+                 header{
+                    padding-top: 5px;
+                 }
+            }
+            @media screen and (min-width: 0px) and (max-width: 996px) {
+            /*pour effacer la recherche quand l'ecran diminue*/
+              form.erase{
+                display: none;
+              }
+            }
+
+            @media (max-width: 768px)
+                #header {
+                    height: 0px; 
+                }
+            }
+
+
+            .navbar-inverse {
+                border-color:  #0A3966;
+            }
+
+            .navbar-nav>li {
+                margin-left: 0px;
+                 padding-bottom: 0px; 
+            }
+
+
+            .navbar-inverse {
+                background-color: #222;
+                border: none;
+            }
+            li{
+                margin:0px 0px;
+
+            }
+            .navbar-inverse .navbar-nav>.active>a {
+                background-image: none;
+            }
+            #nav {
+                padding: 0; margin: 0;
+                text-align: center; /* centrer le texte */
+            }
+            .navbar-inverse .navbar-collapse{
+                margin:auto;
+            }
+
+            .navbar-inverse .navbar-nav>.active>a {
+                background-color: #0077b5;
+            }
+            .navbar-inverse .navbar-nav>a:hover {
+                background-color: #28b1f9;
+            }
+
+            header {
+                padding-top: 0px;
+            }
+
+            a.active{
+                background-color: #0077b5;
+            }
+            a.active:hover{
+                background-color: #0077b5;
+            }
+            .navbar-inverse .navbar-nav>.active>a:hover {
+                background-color: #0077b5;
+            }
+
+            .container {
+                padding-right: 15px; 
+                padding-left: 15px; 
+                margin-right: auto; 
+                margin-left: auto; 
+            }
+            /* enlever le shadow au bord des items du menu */
+            .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a {
+                 box-shadow: none; 
+            }
+            /** css perso SDJT footer*/
+            span.title_link_footer, span.title_link_footer:hover{
+                text-decoration: none;
+                color:#cea25c;
+            }
+            li.link_footer a{
+                color:#A2A5A5;
+                text-decoration: none;
+            }
+            li.link_footer{
+                list-style-type: none;
+            }
+            .link_footer a:hover{
+                color:#DEE5E5;
+            }
+            .copyright{
+                text-decoration: none;
+            }
+
+            footer>div.row{
+                margin-right: 0px;
+                margin-left:0px;
+            }
+
+        </style>
+         {% endblock %}
+    </head>
+
+    <body>
+        <div id="fb-root"></div>
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1036317656536337',
+                    autoLogAppEvents: true,
+                    xfbml: true,
+                    version: 'v3.1'
+                });
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <!-- Your like button code -->
+
+
+         <!--<div id="preloader"></div> -->
+        {% block header %}
+            <!--==========================
+              Hero Section
+            ============================-->
+            <section id="hero">
+                <div class="hero-container">
+                    <div class="wow fadeIn">
+                        {# <div class="hero-logo">
+                             <img class="" src="img/grandlogo.gif" alt="Imperial">
+                         </div>
+ 
+                         <h1>Radio Il Est Ecrit </h1>#}
+                        {#  <h2>Il Est Ecrit<span class="rotating">La fréquence  la parole , Ecoutez et vivez!</span></h2>#}
+                        <div class="actions">
+                            {# <a href="#about" class="btn-get-started">Get Strated</a>
+                             <a href="#services" class="btn-services">Our Services</a>#}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--==========================
+              Header Section
+            ============================-->
+            <div class="container-fluid">
+                <header class="row" >
+                    <div class="col-md-12">
+
+
+
+                        <div class="row">
+                            <nav  class="navbar navbar-inverse navbar-fixed" style="background-color:#0A3966;border-color:none;padding:0px 0px;margin:0px 0px;">
+                                <div class="container">
+
+                                    <div id="logo1" class="pull-left">
+                                        <a href="{{ path('homepage') }}"><img src="{{asset('img/grandlogo.gif')}}" alt="" title="ilestecrit" width="50px" height="50px"     margin-top="0.5em" /></a>
+                                    </div>
+
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#monMenu" style="background-color:#0A3966;">
+                                            <span class="sr-only"> show and hide the navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="collapse navbar-collapse" id="monMenu">
+                                    <div class="container">
+                                        <ul class="nav navbar-nav">
+                                            <li>
+                                                <div id="logo" class="pull-left">
+                                                    <a href="{{ path('homepage') }}"><img src="{{asset('img/grandlogo.gif')}}" alt="" title="ilestecrit" width="52%";/></a>
+                                                </div>
+                                            </li>
+                                            <li class="{% if app.request.attributes.get('_route') == "homepage" %}active{% endif %}"><a href="{{ path('homepage')}}">{{'menu.item.welcome'|trans}}</a></li>
+                                            <li class="{% if app.request.attributes.get('_route') == "emission_index" %}active{% endif %}"><a href="{{ path('emission_index') }}">{{'menu.item.emission'|trans}}</a></li>
+                                            <li class="{% if app.request.attributes.get('_route') == "annonce_index" %}active{% endif %}" ><a href="{{path('annonce_index')}}">{{'menu.item.announcement'|trans}}</a></li>
+                                            <li class="{% if app.request.attributes.get('_route') == "temoignage_index" %}active{% endif %}"><a href="{{ path('temoignage_index') }}">{{'menu.item.testimonies'|trans}}</a></li>
+
+                                            <li class="{% if app.request.attributes.get('_route') == "gallery" %}active{% endif %}"><a href="{{ path('gallery') }}">Videos</a></li>                                            <li class="{% if app.request.attributes.get('_route') == 'fos_user_security_login' %}active{% endif %}"> {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
+                                            <a href="{{ path('fos_user_security_logout') }}">
+                                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                            </a>
+                                            {% else %}
+                                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                            {% endif %}</li>
+                                            <li class="{% if app.request.attributes.get('_route') == 'fos_user_registration_register' %}active{% endif %}"><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+
+                                            <li class="{% if app.request.attributes.get('_route') == "about" %}active{% endif %}"><a href="{{ path('about') }}">{{'menu.item.apropos'|trans}}</a></li>
+                                               
+                                            <li >
+                                                <form action="{{ path('findpassage') }}" method="get"  class="navbar-form navbar-right pull-right erase">
+                                                    <div class="form-group ">
+                                                        <input type="text" name="keyword" class="form-search" id="r" placeholder="{{'menu.item.find'|trans}}">
+
+                                                        <button type="submit" class=" btn btn-secondary"><i class="glyphicon glyphicon-search">   </i></button>
+                                                    </div>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav><!-- #nav-menu-container -->
+                         </div>
+                        
+
+                    </div>
+                </header><!-- #header -->
+            </div>
+
+                         {% endblock %}
+
+
+                        {% block body %}
+
+
+                        {% endblock %}
+
+
+                        {% block footer %}
+                           
+                                    
+                            
+                        {% endblock %}
+
+                        {% block javascripts %}
+                            {% javascripts 'js/jquery-2.1.1.min.js'
+                                           'js/bootstrap.min.js'
+                                           'js/jquery-ui.min.js'
+                                           'js/wow.min.js'
+                                           'lib/stickyjs/sticky.js'
+                                           'js/custom.js'
+                                           'js/parallax.min.js'
+                                           'js/jquery.easing.min.js'
+                                           'js/fliplightbox.min.js'
+                                            'js/functions.js'
+                                            'js/responsive-slider.js'
+                                            'js/jquery.flexslider.min.js' 
+                            output="js/compiled/main.js"%}
+                            <script src="{{ asset_url }}" charset="utf-8"></script>
+                            {% endjavascripts %} 
+                            <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('#r').autocomplete({
+                    source: "{{path('autocopletionresearch')}}",
+                    minLength: 2
+                            // appendTo : "#resultats"
+                });
+            });
+                            </script>
+                            <!-- Global site tag (gtag.js) - Google Analytics -->
+                            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121860437-1"></script>
+                            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-121860437-1');
+                            </script>
+
+
+
+
+
+
+                        {% endblock %}
+                    </body>
+                </html>

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Enquiries list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Body</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for enquiry in enquiries %}
+            <tr>
+                <td><a href="{{ path('enquiry_show', { 'id': enquiry.id }) }}">{{ enquiry.id }}</a></td>
+                <td>{{ enquiry.name }}</td>
+                <td>{{ enquiry.email }}</td>
+                <td>{{ enquiry.subject }}</td>
+                <td>{{ enquiry.body }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('enquiry_show', { 'id': enquiry.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

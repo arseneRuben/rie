@@ -1,0 +1,176 @@
+{% extends 'layout/layout.html.twig' %}
+{% block metasharefacebook %}
+    <meta property="og:url"           content="{{ path(app.request.attributes.get('_route'), { 'id': emission.id }) }}" />
+{% endblock %}
+
+
+{% block body %}
+    {% block emission %}
+
+        <div class="container">
+            <br/>
+            <div class="about">			
+
+                <div class="row">			
+
+                    <div class="col-lg-3 mar-bot30" >
+                        <img width="100%" class="img-responsive" src= "{{asset('uploads/images/emissions/'~emission.imageName)}}" alt="{{emission.nom}}" />
+
+                    </div>
+
+                    <div class="col-lg-6 mar-bot30">
+                        <table class="table table-responsive">
+                            {% for espace in emission.espaces %}
+                                {% for passage in espace.passages|reverse %}
+
+                                    <tr >
+                                        <td> <span class="glyphicon glyphicon-music"></span>
+                                            <b> {{passage.mediaName}}-</b><i>{{'('~passage.datedujour|date('d-m-Y')~')'}}</i> <br/>
+                                            <audio   src="{{asset('uploads/media/'~emission.nom~'/'~passage.mediaName)}}" type="audio/mp3" controls="controls"></audio>
+                                        </td>
+                                        <td>
+                                            <div class="row vote">
+                                                {#<div class="fb-like" data-href="{{ path('emission_show', { 'id': emission.id }) }}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>#}
+
+                                                <div class="vote_btns btn-group ">
+
+
+                                                    <button data-role="like" id="like{{passage.id}}" emi="{{emission.id}}" class="vote_btn vote_like">
+                                                        <i class="fa fa-thumbs-up"></i><b id="btn{{passage.id}}" >{{passage.likecount}}</b>
+                                                    </button>
+
+                                                    <button  data-role="dislike" id="disl{{passage.id}}" emi="{{emission.id}}" class="vote_btn vote_dislike">
+                                                        <i class="fa fa-thumbs-down"></i><b id="btnd{{passage.id}}">{{passage.dislikecount}}</b>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>  
+
+
+
+                                {% endfor %}
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                    <div class="col-lg-3 right">
+                        <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
+                            <b>{{ emission.nom }}</b>
+                            <div class="thumnails">
+
+                                {{ emission.description }}
+                                <ul>
+                                    {% for espace in emission.espaces %}
+                                        <li> {{espace.journee}} : {{espace.debut|date('H-i-s')}} - {{espace.fin|date('H-i-s')}}</li>
+                                        {% endfor %}
+                                </ul>
+                                <div class="ficon">
+                                {% if emission.interactif %}<a href="{{ path('contact') }}">Participer à l'émission <span class="glyphicon glyphicon-edit"></span></a>   {% else %}{% endif %}
+                            </div>
+                            <div class="ficon">
+                                <a href="{{ path('emission_index') }}" alt="">Retour à la liste  <i class="glyphicon glyphicon-list"></i></a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>					
+
+            </div>					
+        </div>	
+        <br/>
+    </div>
+{% endblock %}
+{% endblock %}
+{% block footer %} 
+    <!--==========================
+              Footer
+     ============================--> 
+    <footer id="footer">
+        <div class=" row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-9">
+                {% block liens %}
+                    {{parent()}}
+                {% endblock %}
+                {% block sharefacebook %} 
+                    <HR size=0.8 align="center" width="60%">
+                    <div class=" row">
+                        <div class="social-icon  col-md-6">
+                            <h3 ><span><b>{{'footpage.socials'|trans}}</b></span> </h3>
+                            <ul class="social-network">
+                                <li><a  href="https://web.facebook.com/radioilestecrit.yaounde" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <div class="fb-like"  data-href="{{ path(app.request.attributes.get('_route'), { 'id': emission.id })  }}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>   
+                            </ul>
+                        </div>
+                        <div class=" partners col-md-6">
+                            <span><b>{{'footpage.partners'|trans}}</b></span> 
+                            <ul>
+                                <li><a href="http://uacosendai-edu.net"><b>{{'footpage.uac'|trans}}</b></a></li>
+                                <li><a href="https://ilestecrit.tv/"><b>Il Est Ecrit Tv</b></a></li>
+                                <li><a href="http://cecos-soft.com/"><b>{{'footpage.cecos'|trans}}</b></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block copyright %}
+                    {{parent()}}
+                {% endblock %}
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </footer><!-- #footer -->
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+
+    <script>
+
+        $(document).on('click', 'button[data-role=like]', function () {
+            var url = '{{ path("passage_like", {'id': 'id'}) }}';
+            var id = $(this).attr("id");
+            var emissionid = $(this).attr("emi");
+            url = url.replace("id", id.substring(4, id.length - 1));
+            id = id.substring(4, id.length);
+            var btnVote = document.getElementById("btn" + id);
+            var vote = btnVote.innerHTML;
+
+            $.ajax({
+                url: url,
+                method: "POST",
+                data: {id: id, vote: vote, emissionid: emissionid},
+                success: function () {
+                    btnVote.innerHTML = (parseInt(vote) + 1);
+
+                }
+
+            });
+
+        });
+
+        $(document).on('click', 'button[data-role=dislike]', function () {
+            var url = '{{ path("passage_dislike", {'id': 'id'}) }}';
+            var id = $(this).attr("id");
+            var emissionid = $(this).attr("emi");
+            url = url.replace("id", id.substring(4, id.length - 1));
+            id = id.substring(4, id.length);
+            var btnVote = document.getElementById("btnd" + id);
+            var vote = btnVote.innerHTML;
+
+            $.ajax({
+                url: url,
+                method: "POST",
+                data: {id: id, vote: vote, emissionid: emissionid},
+                success: function () {
+                    btnVote.innerHTML = (parseInt(vote) + 1);
+                }
+            });
+
+
+        });
+    </script>
+{% endblock %}

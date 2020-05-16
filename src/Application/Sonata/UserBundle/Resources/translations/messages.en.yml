@@ -1,0 +1,21 @@
+
+profil:
+    label:   profil of
+    image_indication: You do not have a profile picture yet. Please choose it in the right panel
+    label_telephon: Phone number
+    label_sex : Gender
+    fullfil_msg: Complete my profile
+    item_sex_male: Male
+    name_label : Name
+    item_sex_female: Female
+    label_sex_female : Female
+    label_sex_male : Male
+    
+    label_nationality: Nationality
+    place_holder_telephon: Phone number
+    label_email: E-mail adress
+    label_facebook: Facebook account
+    label_twitter: Twitter account
+    label_image: Profile image
+    sunbath_msg: sunbath messages
+

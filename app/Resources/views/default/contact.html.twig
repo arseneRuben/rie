@@ -1,0 +1,168 @@
+{% extends 'layout/layout.html.twig' %}
+{% block body %} 
+    {% block subscrbe %}
+        <!--==========================
+         Subscrbe Section
+       ============================-->  
+        <section id="subscribe">
+            <div class="container wow fadeInUp">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3 class="subscribe-title">{{'contacts.title'|trans}}</h3>
+                        <p class="subscribe-text">{{'contacts.intro'|trans}}</p>
+                    </div>
+                    <div class="col-md-4 subscribe-btn-container">
+                        <p class="subscribe-text"> {{'contacts.intro2'|trans}}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+    {% block contact %}
+        <!--==========================
+        Contact Section
+      ============================--> 
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-md-5 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.4s">
+                        <h2>Contact Info</h2>
+                        <ul>
+                            <li><i class="fa fa-home fa-2x"></i> {{'contacts.localisation'|trans}} </li><hr>
+                            <li><i class="fa fa-phone fa-2x"></i>+(237)242111313  +(237)698855353 +(237)673633323</li><hr>
+                            <li><i class="fa fa-envelope fa-2x"></i> ilestecritcameroun@gmail.com</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-7 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">  	
+                        <div id="sendmessage"></div>
+                        <div id="errormessage"></div>
+                        <form  action="{{ path('enquiry_new') }}" method="post" {{ form_enctype(form) }}  class="blogger">
+                            {{ form_errors(form, { 'attr': {'class': 'form-control '} }) }}
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    {% if is_granted('ROLE_USER') %}
+                                         {{ form_row(form.nameEmetteur, { 'attr': {'class': 'form-control col-md-6', 'value' : app.user.username} }) }}
+                                    {% else %}
+                                         {{ form_row(form.nameEmetteur, { 'attr': {'class': 'form-control col-md-6'} }) }}
+                                    {% endif %}
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                     {% if is_granted('ROLE_USER') %}
+                                          {{ form_row(form.emailEmetteur, { 'attr': {'class': 'form-control col-md-6','value' : app.user.email} }) }}
+                                         {% else %}
+                                    {{ form_row(form.emailEmetteur, { 'attr': {'class': 'form-control col-md-6'} }) }}
+                                    {% endif %}
+                                    <div class="validation"></div>
+                                </div>
+                            </div>
+                            <div class="form-group  " >
+                                {{ form_row(form.subject, { 'attr': {'class': 'form-control'} }) }}
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(form.body, { 'attr': {'class': 'form-control'} }) }}
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+
+                                {{ form_rest(form) }}
+                                <div class="validation"></div>
+                            </div>
+
+
+
+
+                            <button type="submit" class="btn btn-theme pull-left">{{'contacts.send'|trans}}</button>
+                        </form>
+                    </div>	
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+{% endblock %} 
+{#{% block footer %} 
+
+    {{parent()}}
+
+    <div id="contact">
+
+
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.2s">
+                    <h2>Contactez-nous!</h2>
+                    <p>La radio <b>Il Est Ecrit</b> avec vous est une histoire de bonheur et de grâce de longue date! </p>
+                    <p><i><b> Ecoutez et vivez!</b></i></p>
+                </div>				
+
+                <div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.4s">
+                    <h2>Contact Info</h2>
+                    <ul>
+                        <li><i class="fa fa-home fa-2x"></i> Localisation Yaoundé , Contre-bas de l'immeuble de la CNPS</li><hr>
+                        <li><i class="fa fa-phone fa-2x"></i>+(237)242111313  +(237)698855353 +(237)673633323</li><hr>
+                        <li><i class="fa fa-envelope fa-2x"></i> ilestecritcameroun@gmail.com</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">  	
+                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="errormessage"></div>
+                    <form  action="{{ path('app_contact') }}" method="post" {{ form_enctype(form) }}  class="blogger">
+                         {{ form_errors(form) }}
+                        <div class="form-group">
+                        {{ form_row(form.name) }}
+                         <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                        {{ form_row(form.email) }}
+                         <div class="validation"></div>
+                        </div>
+                        <div class="form-group  " >
+                        {{ form_row(form.subject, { 'attr': {'class': 'form-control'} }) }}
+                         <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                         {{ form_row(form.body) }}
+                          <div class="validation"></div>
+                         </div>
+                         <div class="form-group">
+                             
+                         {{ form_rest(form) }}
+                          <div class="validation"></div>
+                         </div>
+
+                       
+                      
+
+                        <button type="submit" class="btn btn-theme pull-left">SEND MESSAGE</button>
+                    </form>
+                </div>	
+            </div>
+        </div>
+    </div><!--/#contact-->					
+
+    <div class="social-icon">
+        <div class="container">
+            <div class="col-md-6 col-md-offset-3">						
+                <ul class="social-network">
+                    <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            {#  <li><a href="#" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>#}
+{# <li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>#}
+{#  <li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+  <li><a href="#" class="dribbble tool-tip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
+  <li><a href="#" class="pinterest tool-tip" title="Pinterest"><i class="fa fa-pinterest-square"></i></a></li>
+</ul>						
+</div>
+</div>
+</div>	
+
+
+
+{% endblock %}#} 

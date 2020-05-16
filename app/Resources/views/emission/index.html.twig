@@ -1,0 +1,42 @@
+{% extends 'layout/layout.html.twig' %}
+ 
+{% block body %}
+    {% block emission %} 
+        <!--==========================
+      Porfolio Section
+    ============================-->
+        <section id="portfolio">
+            <div class="container wow fadeInUp">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="section-title">{{'emission.title'|trans}}</h3>
+                        <div class="section-title-divider"></div>
+                        <p class="section-description">{{'emission.intro'|trans}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    {% for emission in emissions %}
+                        <div class="col-md-3">
+                            <a class="portfolio-item" href="{{ path('emission_show', { 'id': emission.id }) }}" alt="{{emission.nom}}" style="background-image:url('{{asset('uploads/images/emissions/'~emission.imageName)}}');" >
+                                <div class="details">
+                                    <h4>{{emission.nom|trans|raw}} <br/> <i class="glyphicon glyphicon-headphones"></i></h4>
+                                    <ul>
+                                        {% for espace in emission.espaces %}
+                                            <li> {{espace.journee}} : {{espace.debut|date('H-i-s')}} - {{espace.fin|date('H-i-s')}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    
+                </div>
+                  <div class="navigation  text-center">
+                        <h3><b>{{ knp_pagination_render(emissions) }}</b></h3>
+                    </div>  
+            </div>
+        </section>
+    {% endblock %}
+{% endblock %}

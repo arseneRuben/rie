@@ -1,0 +1,149 @@
+{% extends '::base.html.twig' %}
+{% block metasharefacebook %}
+    <meta property="og:url"           content="{{ path(app.request.attributes.get('_route')) }}" />
+{% endblock %}
+{% block styles %}
+    {{parent()}}
+{% endblock %}
+
+
+{% block body %}  
+
+    {% block about %}
+    {% endblock %}
+
+    {% block services %} 
+    {% endblock %}
+
+    {% block slider %} 
+    {% endblock %}
+
+    {% block emission %} 
+    {% endblock %}
+
+    {% block testimonials %} 
+    {% endblock %}
+
+    {% block team %} 
+    {% endblock %}
+
+    {% block subscrbe %}
+    {% endblock %}
+
+    {% block contact %}
+    {% endblock %}
+
+{% endblock %}  
+
+{% block footer %} 
+    <!--==========================
+              Footer
+     ============================--> 
+    <footer id="footer">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                {% block liens %} 
+                    <h3 ><span class="title_link_footer"><b>{{'footpage.links'|trans}}</b></span> </h3>
+                    <div class="emissions row">
+                        <div class="col-md-3 col-sm-4">
+                            <h3><span style="color:white;"><b>{{'footpage.sermons'|trans}}</b></span> </h3>
+                            <ul>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':15})}}"><b>BARTIMEE</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':19})}}"><b>IL EST ECRIT</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':2})}}"><b>MATIN MUSIQUE MATIN SOLEIL</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':1})}}"><b>SENTINELLE</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':7})}}"><b>LA VOIX DE L'ESPERANCE</b></a></li>
+                                   <li class="link_footer"><a href="{{ path('gallery')}}"><b style = "text-transform:uppercase;">{{'services.service5'|trans}}</b></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <h3 ><span><b>{{'footpage.family'|trans}}</b></span> </h3>
+                            <ul>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':12})}}"><b>NATURE ET SANTE</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':22})}}"><b>DESTINATION SANTE</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':11})}}"><b>ELLE ET LUI</b></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <h3><span><b>{{'footpage.testimonials'|trans}}</b></span> </h3>
+                            <ul>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':3})}}"><b>J'AI RENCONTRE LA FOI</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':18})}}"><b>RENCONTRE AVEC LE CHRIST</b></a></li>
+                                  <li class="link_footer"><a href="{{ path('emission_show', {'id':23})}}"><b>MELODIES POUR LA VIE</b></a></li>
+                                <li class="link_footer"><a href="{{ path('temoignage_index')}}"><b style = "text-transform:uppercase;" > {{'menu.item.testimonies'|trans}}</b></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-5">
+                            <h3  align="center"><span><b>{{'footpage.prophetie'|trans}}</b></span> </h3>
+                            <ul>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':21})}}"><b>VISION PROPHETIQUE</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':6})}}"><b> THE DAILY BREAD</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':4})}}"><b>LE PAIN QUOTIDIEN</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':10})}}"><b>LES BELLES HISTOIRES DE LA BIBLE</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':20})}}"><b>A L'ECOUTE DE LA BIBLE</b></a></li>
+                                <li class="link_footer"><a href="{{ path('emission_show', {'id':13})}}"><b>BIBLE BANQUEST</b></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                {% endblock %}
+                {% block sharefacebook %}
+                    <HR size=0.8 align="center" width="60%">
+                    <div class=" row">
+
+                        <div class="social-icon col-md-6 col-sm-offset-1 col-sm-6">
+                            <h3 ><span><b>{{'footpage.socials'|trans}}</b></span> </h3>
+                            <ul class="social-network">
+                                <li><a  href="https://web.facebook.com/radioilestecrit.yaounde" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+
+                                <div class="fb-like" data-href="{{ path(app.request.attributes.get('_route'))  }}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+
+                            </ul>
+                        </div>
+
+                        <div class=" partners col-md-offset-1 col-md-3  col-sm-4">
+                            <span><b>{{'footpage.partners'|trans}}</b></span> 
+                            <ul>
+                                <li class="link_footer"><a href="http://troisanges.com/"><b>TroisAnges.com</b></a></li>
+                                <li class="link_footer"><a href="http://adventlife.fr/"><b>AdventLife</b></a></li>
+                                <li class="link_footer"><a href="https://ilestecrit.tv/"><b>Il Est Ecrit Tv</b></a></li>
+                                <li class="link_footer"><a href="http://cecos-soft.com/"><b>{{'footpage.cecos'|trans}}</b></a></li>
+                                <li class="link_footer"><a href="http://www.guadadvent.org/"><b>Guadadvent</b></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block copyright %}
+                    <HR size=0.8 align=center width="40%">
+                    <div class="row" align=center>
+
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-6">
+                            <h3><span><b><center>{{'footpage.thanks'|trans}}</center></b></span> </h3>
+                            <div class="copyright">
+                                <a href="{{ path('sonata_user_admin_security_login')}}"> © Radio Il Est Ecrit Cameroun,  2018</a>
+                            </div>
+                            <div class="credits">
+                                {{'footpage.part7'|trans}}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+    </footer><!-- #footer -->
+{% endblock %}
+
+
+
+
+{% block javascripts %}
+    {{parent()}}
+{% endblock %}
+

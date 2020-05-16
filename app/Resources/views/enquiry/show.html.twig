@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Enquiry</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ enquiry.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ enquiry.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ enquiry.email }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ enquiry.subject }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ enquiry.body }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('enquiry_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
