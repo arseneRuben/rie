@@ -35,11 +35,11 @@
                                                 <div class="vote_btns btn-group ">
 
 
-                                                    <button data-role="like" id="like{{passage.id}}" emi="{{emission.id}}" class="vote_btn vote_like">
+                                                    <button data-role="like" id="like{{passage.id}}" userid="{{app.user is null ? null : app.user.id}}" emi="{{emission.id}}" class="vote_btn vote_like">
                                                         <i class="fa fa-thumbs-up"></i><b id="btn{{passage.id}}" >{{passage.likecount}}</b>
                                                     </button>
 
-                                                    <button  data-role="dislike" id="disl{{passage.id}}" emi="{{emission.id}}" class="vote_btn vote_dislike">
+                                                    <button  data-role="dislike" id="disl{{passage.id}}" userid="{{app.user is null ? null : app.user.id  }}" emi="{{emission.id}}" class="vote_btn vote_dislike">
                                                         <i class="fa fa-thumbs-down"></i><b id="btnd{{passage.id}}">{{passage.dislikecount}}</b>
                                                     </button>
                                                 </div>
@@ -134,6 +134,11 @@
             var url = '{{ path("passage_like", {'id': 'id'}) }}';
             var id = $(this).attr("id");
             var emissionid = $(this).attr("emi");
+            var userid = $(this).attr("userid");
+            if (!userid ){
+                    alert("Pour liker, veuillez-vous connecter !");
+                    
+            }
             url = url.replace("id", id.substring(4, id.length - 1));
             id = id.substring(4, id.length);
             var btnVote = document.getElementById("btn" + id);
@@ -156,6 +161,10 @@
             var url = '{{ path("passage_dislike", {'id': 'id'}) }}';
             var id = $(this).attr("id");
             var emissionid = $(this).attr("emi");
+             var userid = $(this).attr("userid");
+            if (!userid ){
+                    alert("Pour disliker, veuillez-vous connecter! ");
+            }
             url = url.replace("id", id.substring(4, id.length - 1));
             id = id.substring(4, id.length);
             var btnVote = document.getElementById("btnd" + id);
